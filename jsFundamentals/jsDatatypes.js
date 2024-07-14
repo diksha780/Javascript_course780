@@ -65,8 +65,8 @@
 
 let num3=null//null
 let string3=String(num3);
-console.log(string3)
-console.log(typeof string3)
+// console.log(string3)
+// console.log(typeof string3)
 
 
 
@@ -74,3 +74,48 @@ console.log(typeof string3)
 // number -> string
 // undefined -> undefined
 // null -> null
+
+
+// ****************************************************************************************
+// ***************************** static and heap memory in js**************************
+
+// primitive datatypes stored in static memory
+//call by reference
+//copy of original value is refernced
+
+let name1="diksha"
+let name2=name1;
+// console.log(name2)
+name2="diksha rani"
+// console.log(name2)
+
+
+
+//***************dynamic datatypes are stored in heap memory 
+//call by reference 
+// changes made in data are reflected back
+
+let user1={
+    usrname:"Diksha",
+    rollno:4152
+
+}
+// console.log(user1)
+
+// console.log(user1.rollno)
+
+let user2= user1
+// console.log(user2)
+
+user2.rollno=4222
+// console.log(user2)
+
+
+console.log(user2)
+user2.email="kjm"
+// console.log(user2)
+
+console.log(user1)
+user1.phn=63783638
+console.log(user1)
+console.log(user2)
