@@ -59,6 +59,18 @@ let str4="Diksha"
 let strpad1= str4.padStart(100, "Vishal")
 // console.log(strpad1)
 
+// ***************replaceAll()
+ let repStr1=strpad1.replaceAll("Vishal", "Diksha")//replace all vishal with diksha
+
+
+ //********************replace() */
+ let repStr2= strpad1.replace(/VISHAL/i,"Diksha") // replace only first vishal with diksha with (i flag) insensitive
+//  console.log(repStr1)
+// console.log(repStr2)
+
+let repStr3= strpad1.replace(/Vishal/g, "Diksha") //replace all Vishal with Diksha by using (/g flag ) global match
+// console.log(repStr3)
+
 // ******************************padEnd
 let strpad2= str4.padEnd(100,"Vishal")
 // console.log(strpad2)
@@ -79,6 +91,6 @@ let newstr4= str6.repeat(5)
 // **************************split() => string is converted into array
 let str7="apple,banana, orange, mango" // right
 let arr1 = str7.split(",")
-console.log(arr1)
-console.log(arr1[2])
-console.log(str6.split(" "))
+// console.log(arr1)
+// console.log(arr1[2])
+// console.log(str6.split(" "))
