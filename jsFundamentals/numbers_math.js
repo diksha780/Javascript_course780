@@ -122,3 +122,8 @@ undefined
 
 
 // ***************pow() => gives power
+// **************************random()
+const min=10
+const max=20
+// 
+
