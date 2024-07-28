@@ -33,7 +33,7 @@
 // console.log(myCreatedDate.toLocaleString()) //1/16/2024, 12:00:00 AM
 
 // ******************to create timestamaps : now()
-let myTimeStamp =  Date.now()
+// let myTimeStamp =  Date.now()
 // let output1 = console.log(myTimeStamp) //1722068929148 : time in milliseconsd from Jan 1, 1970
 
 // **************to find timestamps from a specific date :  getTime()
@@ -55,10 +55,10 @@ let myTimeStamp =  Date.now()
 // console.log(Math.round(time/1000))
 
 // ******to exract only month/ date, day, year, time in hrs , minutes, seconds from a date/time string
-let time=Date.now()
+// let time=Date.now()
 // console.log(time) //1722071391723
-let date=new Date();
-console.log(date.toLocaleString())  //7/27/2024, 9:09:51 AM
+// let date=new Date();
+// console.log(date.toLocaleString())  //7/27/2024, 9:09:51 AM
 // console.log(date.getDate()) //27
 // console.log(date.getDay())  //6 mon, tes, wed.....
 // console.log(date.getFullYear())  //2024
@@ -71,8 +71,18 @@ console.log(date.toLocaleString())  //7/27/2024, 9:09:51 AM
 // console.log(date.getTime())  //6 1722071759285
 
 
+// ******************** javascript.info
+
+let date= new Date(0); //gives date from jan 1, 1970
+// console.log(date)  //1970-01-01T00:00:00.000Z
+let date1= new Date(); //gives current date
+// console.log(date1) //2024-07-28T08:25:47.738Z
+
+let date2= new Date(-24*3600*1000) //negative timestamp gives date before jan 1 1970
+// console.log(date2) //1969-12-31T00:00:00.000Z
 
 
-
+//****************** getTimezoneOffset()
+console.log(date1.getTimezoneOffset()) 
 
 
