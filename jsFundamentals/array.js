@@ -198,6 +198,17 @@ let str1="Diksha"
 let num =34253
 console.log(Array.from(str1)) //[ 'D', 'i', 'k', 's', 'h', 'a' ]
 console.log(Array.from(num))  //[]
+console.log(Array.from(String(num)))  //by converting  number into String data type, we can use from () on numbers
+console.log(typeof  num)
+let obj1={
+  "name": "Diksha"
+}
 
+console.log(Array.from(obj1)); //[] we have to define that we want to conver key/ values of the object into arry
 
+// **********************of()
+let num2=6
+let num3=16
+let arr12 = Array.of(num2,num3)
 
+console.log(arr12)
