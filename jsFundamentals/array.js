@@ -2,7 +2,7 @@ const arr1=[1,2,3,4]  //add numbers in array
 // console.log(arr1)
 const arr2=["Diksha", "Nangla", 9, 8] // add multiple items  
 // console.log(arr2)
-arr2[2]= "Vishal" //can add more elements into array
+arr2[2]= "Vishal" //can add more elements into array(initial values at that index will be overridden)
 // console.log(arr2)
 
 // arr2= ["Vishal"] // can't change the original content of array
@@ -50,6 +50,9 @@ arr3.shift()
   //  console.log(arr3)
 
 // .*********array methods
+
+
+
 // ****************.include() : tells whether the given element is present in the array or not 
 // gives boolean value as result
 
@@ -74,7 +77,7 @@ let newarr= arr4.join()
 
 // **************** slice() and splice() method
  
-// ****** sliec()
+// ****** slice()
 let arr5 =[1,2,3,4,5,6,7,8]
 // console.log( "a :", arr5) 
 /* a : [
@@ -118,20 +121,83 @@ c [ 1, 6, 7, 8, 9 ] */
 // ******************** to combine multiple arrays into one array
 
 // ***********push ()
-console.log(arr3)  //[ 4, 5, 6, 7 ]
-console.log(arr4) //[ 'Diksha', 'Vishal', 'Sarisha' ]
+// console.log(arr3)  //[ 4, 5, 6, 7 ]
+// console.log(arr4) //[ 'Diksha', 'Vishal', 'Sarisha' ]
+let arr9= ["Ivaan", "Sarisha"]
+arr3.push(arr4, arr9)
+// console.log(arr3) // (here arr4 is pushed into arr3)
 
-
-console.log(arr3.push(arr4)) //5 returns length of the combined array
- //array arr4 is merged into arr1 as its element 
-console.log(arr3)  //[ 4, 5, 6, 7, [ 'Diksha', 'Vishal', 'Sarisha' ] ]
+// console.log(arr3.push(arr4)) //5 returns length of the combined array
+ //array arr4 is merged into arr3 as its element 
+// console.log(arr3)  //[ 4, 5, 6, 7, [ 'Diksha', 'Vishal', 'Sarisha' ] ]
 // console.log(arr3[4]) //[ 'Diksha', 'Vishal', 'Sarisha' ]
 // console.log(arr3[4][1]) //Vishal
 
+
 // *******************concat()
-
-
 let arr7=[1,2,3]
 let arr8= ["Diksha", "Vishal"]
- arr7.concat(arr8)
+// let arr9= ["Ivaan", "Sarisha"]
+
+//  arr7.concat(arr8) // we need to store combined array into new variable yo see thr combined array output
+//  console.log(arr7) //[ 1, 2, 3 ]
+//  console.log(arr8) //[ 'Diksha', 'Vishal' ]
+  let newarr1= arr7.concat(arr8,)
+  // console.log(newarr1) //  [ 1, 2, 3, 'Diksha', 'Vishal' ]
+
+
+  // let newarr3= arr7.concat(arr8,arr9)
+  // console.log(newarr3)
+
+  // 
+
+
+  // ****************** spread method
+  // console.log(arr7)
+  // console.log(arr8)
+  /* 
+  [ 1, 2, 3 ]
+[ 'Diksha', 'Vishal' ]
+ */
+ let newarr2= [...arr7, ...arr8]
+//  console.log(newarr2) //[ 1, 2, 3, 'Diksha', 'Vishal' ]
+
+ 
+/* _______NOTE:  
+=> we can combine multiple arrays using cancat, spread and push method
+
+=> difference between push() and concat()
+--push() add oher array as an element of array //[ 4, 5, 6, 7, [ 'Diksha', 'Vishal', 'Sarisha' ] ]
+--concate add elements of other array directly  // [ 1, 2, 3, 'Diksha', 'Vishal' ]
+*/ 
+
+
+// ********************** flat() : used to get all the embedded arrays into array as a new array
+// flat() method parameter is the depth to which we wand to get the embedded arrays
+let arr10= [1,2,[3,4],[5,4,4,[6,7]]]
+let arr11= arr10.flat(Infinity)
+// console.log(arr11)
+ /*
+
+[
+  1, 2, 3, 4, 5,
+  4, 4, 6, 7
+]
+*/
+
+
+// used for data scraping
+// ******************isArray() : tells whwther an element is an array or not
+// returns boolean value
+let str1="Diksha"
+// console.log(Array.isArray(str1)) ///false
+// console.log(Array.isArray(arr10));  //true
+
+
+// **************from() : used to convert any data format (like string, object) into array format
+let num =34253
+console.log(Array.from(str1)) //[ 'D', 'i', 'k', 's', 'h', 'a' ]
+console.log(Array.from(num))  //[]
+
+
 
