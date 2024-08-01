@@ -196,19 +196,60 @@ let str1="Diksha"
 
 // **************from() : used to convert any data format (like string, object) into array format
 let num =34253
-console.log(Array.from(str1)) //[ 'D', 'i', 'k', 's', 'h', 'a' ]
-console.log(Array.from(num))  //[]
-console.log(Array.from(String(num)))  //by converting  number into String data type, we can use from () on numbers
-console.log(typeof  num)
+// console.log(Array.from(str1)) //[ 'D', 'i', 'k', 's', 'h', 'a' ]
+// console.log(Array.from(num))  //[]
+// console.log(Array.from(String(num)))  //by converting  number into String data type, we can use from () on numbers
+// console.log(typeof  num)
 let obj1={
   "name": "Diksha"
 }
 
-console.log(Array.from(obj1)); //[] we have to define that we want to conver key/ values of the object into arry
+// console.log(Array.from(obj1)); //[] we have to define that we want to conver key/ values of the object into arry
 
 // **********************of()
 let num2=6
 let num3=16
 let arr12 = Array.of(num2,num3)
 
-console.log(arr12)
+// console.log(arr12)
+// *******************************************************************************************
+
+// *********************More About Arrays
+
+/* *************difference between array and object:
+=>object is the collection of keyed elements where we cant insert more properties in between the existing elements
+=> in obects , you cant manage the order of the elements
+=> arrays are the collection of ordered elements, in which we an access elements by their order
+  */
+
+
+// arrays is the collection of multiple data items i.e.
+let arr13= ["Diksha", 1,3, {"name":"Vishal"}, function (){console.log("Hi");
+}]
+// console.log(arr13[3].name) //access object key  //Vishal
+// arr13[4]() //Hi
+// console.log(arr13[4]()) //access function  //Hi 
+                                            // undefined 
+
+
+// *********************GET LAST ELEMENT OF THE ARRAYS
+/*________ NOTES 
+=> last element cant be get by using negative index ie. arr[-1]
+=> we can explicitly access last element of array by 2 mothods: arr[arr.length-1] or using at()
+*/
+
+
+// **********length-1
+let arr14=[1,2,3,4,5,6,7,] //trailing comma
+// console.log(arr14.length); //7
+// console.log(arr14[arr14.length-1]) //7
+
+
+
+// ************at()
+// => at() also accepts negative index to access last element of array
+
+// console.log(arr14.at(-1)); //7
+// console.log(arr14.at(-3)); //5
+// console.log(arr14.at(1)); //2
+
