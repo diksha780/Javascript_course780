@@ -225,7 +225,10 @@ let arr12 = Array.of(num2,num3)
 
 // arrays is the collection of multiple data items i.e.
 let arr13= ["Diksha", 1,3, {"name":"Vishal"}, function (){console.log("Hi");
+
 }]
+
+
 // console.log(arr13[3].name) //access object key  //Vishal
 // arr13[4]() //Hi
 // console.log(arr13[4]()) //access function  //Hi 
@@ -234,7 +237,7 @@ let arr13= ["Diksha", 1,3, {"name":"Vishal"}, function (){console.log("Hi");
 
 // *********************GET LAST ELEMENT OF THE ARRAYS
 /*________ NOTES 
-=> last element cant be get by using negative index ie. arr[-1]
+=> last element can't be get by using negative index ie. arr[-1]
 => we can explicitly access last element of array by 2 mothods: arr[arr.length-1] or using at()
 */
 
@@ -253,3 +256,76 @@ let arr14=[1,2,3,4,5,6,7,] //trailing comma
 // console.log(arr14.at(-3)); //5
 // console.log(arr14.at(1)); //2
 
+// ************************** arrays loops
+
+// let arr15=["Diksha", 1,2,{"address": "Jadla",}, function greet() {console.log("hi");}]
+// for (let i=0;i<arr15.length;i++){
+//   // console.log(arr15[i])
+// }
+
+/*Diksha
+1
+2
+{ address: 'Jadla' }
+[Function: greet] */
+// ************** for...of loop
+
+// for(let i of arr15){
+//   // console.log(i)
+// }
+/* Diksha
+1
+2
+{ address: 'Jadla' }
+[Function: greet]*/
+
+// _________NOTES on for..in
+/*  => as arrays are objects, we can also use for..in method of looping, but there are array-like objects in javacsript that have properties like length and index properties
+just like arrays do, but also have other properties too which arrays dont have
+=> for..in is mainly for regular objects , not of arrays*/
+
+// ********** EXCERCISE 
+// ***** ques 1
+// let styles=["Jazz","Blues"]
+// styles.push("Rock-n-Roll")
+// console.log(styles)
+// let mid=(Math.floor(styles.length-1))/2
+// console.log(mid)
+// styles[mid]="Classics"
+// console.log(styles)
+// console.log(styles.shift())
+// console.log(styles)
+// styles.unshift("Rap","Reggae")
+// console.log(styles)
+
+/* [ 'Jazz', 'Blues', 'Rock-n-Roll' ]
+1
+[ 'Jazz', 'Classics', 'Rock-n-Roll' ]
+Jazz
+[ 'Classics', 'Rock-n-Roll' ]
+[ 'Rap', 'Reggae', 'Classics', 'Rock-n-Roll' ]*/
+
+
+// *******ques 2
+
+// let arr = ["a", "b"]; 
+
+// arr.push(function() {
+//   console.log( this ); //
+// })
+
+// arr[2](); //[ 'a', 'b', [Function (anonymous)] ]
+
+/* 
+The call arr[2]() is syntactically the good old obj[method](), in the role of obj we have arr, and in the role of method we have 2.
+
+So we have a call of the function arr[2] as an object method. Naturally, it receives this referencing the object arr and outputs the array:
+*/
+
+const input =process.argv[2];
+if(input){
+console.log(`your name is ${input}`)
+}
+else {
+  console.log('No input provided.');
+}
