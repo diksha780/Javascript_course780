@@ -222,7 +222,7 @@ Amarjit
 */
 
 // **************************************************************************
-
+// *********MERGING OBJECTS
 // ******** to combine multiple objects, to copy objects to other varibale,
 // *** we use Object.assign method()
 
@@ -259,13 +259,87 @@ const comObj3=Object.assign({},obj2,obj3)
 false
 */
 
+// ***********MERGING OBJECTS WITH SAME PROPERTIES
 // ********** IF MULTIPLE OBJECTS TO BE COMBINED, have same keys, then keys values are overwritten
 // earlier keys values are overwritten by the later key values
 /* => FROM MDN
 Properties in the target object are overwritten by properties in the sources if they have the same key. Later sources' properties overwrite earlier ones.*/
 
+const obj4 ={1:"a", 2:"b"}
+const obj5={1:"c", 2:"d"}// OBJECTS HAVING SAME PROPERTIES
+
+const comObj4= Object.assign({},obj4, obj5)
+// console.log(comObj4) //{ '1': 'c', '2': 'd' }
+// console.log(obj4)
+
+// ******** CLONING AN OBJECT : Object.assign()
+
+// copy obj4 into other object
+let obj6 ={1:"a", 2:"b" , num:"c"} //creating accessing wali problem with number as index(method 2 of access object key is better)
+const copy = Object.assign(obj6) //
+// console.log(copy) //{ '1': 'a', '2': 'b', num: 'c' }
+
+// *** MODIFYING ORIGINAL OBJECT
+// ***** modify original object
+obj6.num="Diksha";
+// console.log(obj6)
+// console.log(copy); 
+/* 
+{ '1': 'a', '2': 'b', num: 'Diksha' }
+{ '1': 'a', '2': 'b', num: 'Diksha' }
+ */
+
+// ***** MODIFY COPY OBJECT
+// copy.num="Diksha";
+// console.log(obj6)
+// console.log(copy); 
+/* { '1': 'a', '2': 'b', num: 'Diksha' }
+{ '1': 'a', '2': 'b', num: 'Diksha' }
+ */
+
+// ************ ADDING {} AS FIRST PARAMETR OF OBJECT.ASSIGN()
+
+let obj7 ={1:"a", 2:"b" , num:"c"} //creating accessing wali problem with number as index(method 2 of access object key is better)
+const copy1 = Object.assign({},obj7)
+// console.log(copy1)
 
 
+// *****MODIFY ORIGINAL OBJECT
+// obj7.num="Diksha";
+// console.log(obj7)
+// console.log(copy1);
 
+/* 
+{ '1': 'a', '2': 'b', num: 'c' }
+{ '1': 'a', '2': 'b', num: 'Diksha' }
+{ '1': 'a', '2': 'b', num: 'c' }
+ */
 
+// *****MODIFY COPY OBJECT
+// console.log(obj7)
+// copy1.num="Diksha";
+// console.log(obj7)
+// console.log(copy1);
 
+/* 
+{ '1': 'a', '2': 'b', num: 'c' }
+{ '1': 'a', '2': 'b', num: 'c' }
+{ '1': 'a', '2': 'b', num: 'Diksha' }
+ */
+
+// *****************************************************
+
+const obj9 = { a: 0, b: { c: 0 } }; 
+const obj10 = Object.assign({}, obj9);
+console.log(obj10); 
+
+// *****modify embedded object key value
+obj9.b.c = 3;
+console.log(obj9); // { a: 1, b: { c: 3 } }
+console.log(obj10); // { a: 2, b: { c: 3 } }
+
+// ___NOTES: Cloning objects
+// => if not adding {} as first paramter of object.assign(), then shallow copy of original object is created
+// => any change made in original object ,is reflected into copy object and vice versa
+// => if we add {} as first parameter i.e. Object.assign({}, obj1),
+//  then, deep copy is generated...means changes made in original object or copy object are independet
