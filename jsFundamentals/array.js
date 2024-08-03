@@ -139,7 +139,7 @@ let arr7=[1,2,3]
 let arr8= ["Diksha", "Vishal"]
 // let arr9= ["Ivaan", "Sarisha"]
 
-//  arr7.concat(arr8) // we need to store combined array into new variable yo see thr combined array output
+//  arr7.concat(arr8) // we need to store combined array into new variable you see thr combined array output
 //  console.log(arr7) //[ 1, 2, 3 ]
 //  console.log(arr8) //[ 'Diksha', 'Vishal' ]
   let newarr1= arr7.concat(arr8,)
@@ -268,6 +268,7 @@ let arr14=[1,2,3,4,5,6,7,] //trailing comma
 2
 { address: 'Jadla' }
 [Function: greet] */
+
 // ************** for...of loop
 
 // for(let i of arr15){
