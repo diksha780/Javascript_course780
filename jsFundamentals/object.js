@@ -12,7 +12,7 @@
 // => we can give any type like string, number, boolean value, object, array etc as value of any key of object
  const user1={
     name:"Diksha",
-    "full name" : "Diksha Rani", // this key will not be accesed by method 1 of accessing keys of object, thus method two is more better
+    "full name" : "Diksha Rani", // this key will not be accesed by method 1 of accessing keys of object(using .), thus method two is more better
     roll_no: 4152,
     program:"CSE",
     address:"Jadla",
@@ -59,38 +59,56 @@ const mysym= Symbol("key1"); // to declared symbol of key1
 
 // if we want to use symbols as the key in our object
 
-// const user2={
-//     name:"Diksha",
+const user2={
+    name:"Diksha",
 
-//     "full name" : "Diksha Rani", // this key will not be accesed by method 1 of accessing keys of object, thus method two is more better
-//     roll_no: 4152,
-//     program:"CSE",
-//     address:"Jadla",
-//     mysym:5, //this is not the actual symbol used as the key in the object // it will treated as string by the engine, however will return the corresonding value ie marks
+    "full name" : "Diksha Rani", // this key will not be accesed by method 1 of accessing keys of object, thus method two is more better
+    roll_no: 4152,
+    program:"CSE",
+    address:"Jadla",
+    mysym:5, //this is not the actual symbol used as the key in the object // it will treated as string by the engine, however will return the corresonding value ie marks
 
-// }
+}
 // console.log(user2["mysym"]) //marks
 // console.log(typeof user2["mysym"]) //number
 // console.log(typeof user2[mysym]) //undefined
+// console.log(typeof mysym) //symbol
+// console.log(user2)
+/* {
+  name: 'Diksha',
+  'full name': 'Diksha Rani',
+  roll_no: 4152,
+  program: 'CSE',
+  address: 'Jadla',
+  mysym: 5 //mysym is not treated as symbol
+}*/
 
 // ___NOTE: type of mysym is not symbol here, it is string as treated by the engine, bcz it is not the right syntax to use symbol as key in object
 
 // ****correct syntax
 
-// const user3={
-//     name:"Diksha",
+const user3={
+    name:"Diksha",
 
-//     "full name" : "Diksha Rani", // this key will not be accesed by method 1 of accessing keys of object, thus method two is more better
-//     roll_no: 4152,
-//     program:"CSE",
-//     address:"Jadla",
-//     [mysym]:76, //this is not the actual symbol used as the key in the object // it will treated as string by the engine, however will return the corresonding value ie marks
+    "full name" : "Diksha Rani", // this key will not be accesed by method 1 of accessing keys of object, thus method two is more better
+    roll_no: 4152,
+    program:"CSE",
+    address:"Jadla",
+    [mysym]:76,
 
-// }
+}
 // console.log(user3[mysym]) //76
 // console.log(typeof user3[mysym]) //number
 // console.log(typeof mysym)  //symbol
-
+// console.log(user3)
+/* {
+  name: 'Diksha',
+  'full name': 'Diksha Rani',
+  roll_no: 4152,
+  program: 'CSE',
+  address: 'Jadla',
+  [Symbol(key1)]: 76  //mysym is treated as symbol
+}*/
 
 // ***************************************************
 
@@ -126,7 +144,7 @@ user4.name="Diksha Rani"
 // ******* to add function in object
 
 user4.myFunc=function greet() {
-    // console.log("Hello Diksha")
+    console.log("Hello Diksha")
 }
 
 // console.log(user4)
@@ -143,6 +161,7 @@ user4.myFunc=function greet() {
 }
   */
 //  console.log(user4["myFunc"]) //[Function: greet]
+// console.log(user4["myFunc()"]) //undefined
 //  console.log(user4.myFunc()) 
 /* Hello Diksha
    undefined 
@@ -152,11 +171,11 @@ user4.myFunc=function greet() {
  // *************this keyword
 //  _NOTES
 //  => this keyword is used to refer the same object or the properties of the same object
-// => foe eg, if inside a function which is also an value of object say A ,  i want to access the any other key of the same object A, then we will access that key or the whole object usinh " this " keyword
+// => for eg, if inside a function which is also a value of object say A ,  i want to access the any other key of the same object A, then we will access that key or the whole object usinh " this " keyword
  
 
 user4.myFunc2= function myAccess(){
-    // console.log(`My name is ${this.name}`)
+    console.log(`My name is ${this.name}`)
 }
 // console.log(user4)
 /*
@@ -180,13 +199,16 @@ undefined
 
 
 user4.myFunc3= function myAccess(){
-    // console.log(`My name is ${this.roll_no}`)
+    console.log(`My name is ${this.roll_no}`)
 }
 // console.log(user4.myFunc3())
+
 /* 
 My name is 4152
 undefined
 */
+// user4.myFunc3() //My name is 4152
+
 
 // nested objects
 const instaUser={
@@ -270,7 +292,12 @@ const obj5={1:"c", 2:"d"}// OBJECTS HAVING SAME PROPERTIES
 
 const comObj4= Object.assign({},obj4, obj5)
 // console.log(comObj4) //{ '1': 'c', '2': 'd' }
-// console.log(obj4)
+// console.log(obj4) //{ '1': 'a', '2': 'b' }
+
+
+// **********SPREAD METHOD
+const obj17={...obj4, ...obj5}
+// console.log(obj17) //{ '1': 'c', '2': 'd' }
 
 // ******** CLONING AN OBJECT : Object.assign()
 
@@ -281,7 +308,7 @@ const copy = Object.assign(obj6) //
 
 // *** MODIFYING ORIGINAL OBJECT
 // ***** modify original object
-obj6.num="Diksha";
+// obj6.num="Diksha";
 // console.log(obj6)
 // console.log(copy); 
 /* 
@@ -301,7 +328,7 @@ obj6.num="Diksha";
 
 let obj7 ={1:"a", 2:"b" , num:"c"} //creating accessing wali problem with number as index(method 2 of access object key is better)
 const copy1 = Object.assign({},obj7)
-// console.log(copy1)
+// console.log(copy1) //{ '1': 'a', '2': 'b', num: 'c' }
 
 
 // *****MODIFY ORIGINAL OBJECT
@@ -310,7 +337,6 @@ const copy1 = Object.assign({},obj7)
 // console.log(copy1);
 
 /* 
-{ '1': 'a', '2': 'b', num: 'c' }
 { '1': 'a', '2': 'b', num: 'Diksha' }
 { '1': 'a', '2': 'b', num: 'c' }
  */
@@ -331,15 +357,82 @@ const copy1 = Object.assign({},obj7)
 
 const obj9 = { a: 0, b: { c: 0 } }; 
 const obj10 = Object.assign({}, obj9);
-console.log(obj10); 
+// console.log(obj10); 
 
 // *****modify embedded object key value
 obj9.b.c = 3;
-console.log(obj9); // { a: 1, b: { c: 3 } }
-console.log(obj10); // { a: 2, b: { c: 3 } }
+// console.log(obj9); // { a: 1, b: { c: 3 } }
+// console.log(obj10); // { a: 2, b: { c: 3 } }
 
 // ___NOTES: Cloning objects
 // => if not adding {} as first paramter of object.assign(), then shallow copy of original object is created
 // => any change made in original object ,is reflected into copy object and vice versa
 // => if we add {} as first parameter i.e. Object.assign({}, obj1),
 //  then, deep copy is generated...means changes made in original object or copy object are independet
+
+// Warning for Deep Clone
+const obj11 = { a: 0, b: { c: 0 } };
+const obj12 = Object.assign({}, obj11);
+// console.log(obj12); // { a: 0, b: { c: 0 } }
+
+
+obj11.a = 1;
+// console.log(obj11); // { a: 1, b: { c: 0 } }
+// console.log(obj12); // { a: 0, b: { c: 0 } }
+
+obj12.a = 2;
+// console.log(obj11); // { a: 1, b: { c: 0 } }
+// console.log(obj12); // { a: 2, b: { c: 0 } }
+
+obj12.b.c = 3;
+// console.log(obj11); // { a: 1, b: { c: 3 } }
+// console.log(obj12); // { a: 2, b: { c: 3 } }
+// here shallow copy is created
+//For  Deep Clone : use structuredClone() instead of Object.assign()
+const obj13 = { a: 0, b: { c: 0 } };
+const obj14 = structuredClone(obj13);
+obj13.a = 4;
+obj13.b.c = 4;
+// console.log(obj14); // { a: 0, b: { c: 0 } }
+
+
+// *******************GETTER AND SETTER
+// GET METHOD
+/* ___NOTES:The get syntax binds an object property to a function that will be called when that property is looked up. 
+=>Sometimes, it is desirable to allow access to a property that returns a dynamically computed value, or you may want to reflect the status of an internal variable without requiring the use of explicit method calls. In JavaScript, this can be accomplished with the use of a getter.
+
+
+*/
+const obj15={
+  log:['a','b','c'],
+  get latest(){
+    return this.log[this.log.length-1]
+
+  },
+}
+// console.log(obj15.latest) //c
+
+
+const obj16={
+  log:["Diksha", "Rani"],
+  get latest(){
+    return this.log.at(-1);
+  }
+}
+// console.log(obj16.latest) //Rani
+
+// ********set keyword
+/* _____NOTES:
+=>The set syntax binds an object property to a function to be called when there is an attempt to set that property. 
+*/
+
+const language={
+  set current(name){
+    this.log.push(name);
+  },
+  log:[],
+}
+
+language.current="Diksha"
+language.current="Vishal"
+// console.log(language.log) //[ 'Diksha', 'Vishal' ]
