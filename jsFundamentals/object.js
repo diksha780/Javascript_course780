@@ -436,3 +436,37 @@ const language={
 language.current="Diksha"
 language.current="Vishal"
 // console.log(language.log) //[ 'Diksha', 'Vishal' ]
+
+
+
+// *****************ARRAY OF OBJECTS
+const chatAppUser=[
+  {
+    id:1,
+    mail:"diksha@gmail.com",
+
+  },
+  {
+    id:2,
+    mail:"vishal@gmail.com"
+  },
+
+]
+
+// console.log(chatAppUser[1]["mail"]) //vishal@gmail.com
+// console.log(chatAppUser[1].mail)//vishal@gmail.com
+
+// ****** TO ACCESS ALL THE KEYS OF OBJECT
+// => GIVEN KEYS WILL BE PROVIDED IN ARRAY 
+
+let obj18 ={1:"a", 2:"b" , num:"c"}
+// console.log(Object.keys(obj18))  //[ '1', '2', 'num' ]
+
+// // ****** TO ACCESS ALL THE values OF OBJECT
+// => GIVEN KEYS WILL BE PROVIDED IN ARRAY 
+
+// console.log(Object.values(obj18)) //[ 'a', 'b', 'c' ]
+
+// ***** hasOwnProperty: to check whether a key is present in the object or not
+// console.log(obj18.hasOwnProperty("num")) //true
+
