@@ -1,3 +1,15 @@
+//quick notes
+/*toString(),,toFixed(),,toPrecision(),,toLocaleString(),,
+Math*/
+
+
+
+
+
+
+
+
+
 // let balance = new Number(100) //declare a nummber with new keyword as an object
 // console.log(balance)
 // console.log( typeof balance)
