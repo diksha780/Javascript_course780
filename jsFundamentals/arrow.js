@@ -51,7 +51,7 @@ let userData={
 /* 
 => when we console.log(this ) in vs code or any standalone js compiler environement, then result is {}, an empty object
 => but when we console.log(this) in browser console(inspect), it gives result: Windows
-=> Windows is a global object in the browser environment, earlier js was only executed b browser engine
+=> Windows is a global object in the browser environment, earlier js was only executed by browser engine
 =>node is javascript standalone engine that executes js code
     */
 
@@ -179,3 +179,8 @@ let add= (num1 , num2) => (num1 + num2)
 
 // *** if replaces {} with parenthesis () and write code in same single line, we dont need to write return keyword
 // implicit retur is mostly used in react js
+
+// ******** to return a obejct using implici return
+
+let sale=()=> ({cp:500, sp:1000})
+// console.log(sale()) //{ cp: 500, sp: 1000 }
