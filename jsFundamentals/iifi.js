@@ -25,18 +25,18 @@ function hello(){
 // NOTE: => if there are multipt IIFE functions used in a file, then we have to stop the context of the function execution using ";", otherwise it will give error
 // example:
 
-(
-    function food(){
-        console.log("Delicious")
-    }
-)
-();
+// (
+//     function food(){
+//         console.log("Delicious")
+//     }
+// )
+// ();
 
-(
-    function drink(){
-        console.log("Drink")
-    }
-)
+// (
+//     function drink(){
+//         console.log("Drink")
+//     }
+// )
 // ()
 /*
 /workspaces/Javascript_course780/jsFundamentals/iifi.js:32
@@ -70,7 +70,7 @@ Node.js v22.6.0 */
 //         console.log("Drink")
 //     }
 // )
-// ();
+// ()
 
 /* 
 Delicious
@@ -78,4 +78,16 @@ Drink
 */
 
 // Note: 
-// => 
+// => if I remove ()//execution of first iife function and comement out ( ) of second iifi function, even then , it will execute 
+// => if i remove () of first and does not do of second iife function, then it will gve error
+/* ()
+^
+
+TypeError: (intermediate value)(...) is not a function*/
+
+
+// we can use IIFI woth arrow functin
+
+((num1, num2)=>{
+    console.log(num1 +num2)
+})(3,5) //8
