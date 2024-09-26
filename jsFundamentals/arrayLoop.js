@@ -1,4 +1,4 @@
-// for of loop is appiicable on arrays, strings , objects
+// for of loop is appiicable on arrays, strings , map objects
 let greetings =["Namaste", "Hi", "Hello"]
 // for (const greet of greetings ){
 
@@ -58,10 +58,10 @@ a
 
 // *************** MAP OBJECT
 /*NOTE : 
-Baseline Widely available
 => The Map object holds key-value pairs and remembers the original insertion order of the keys.
 => Any value (both objects and primitive values) may be used as either a key or a value.
 => A key in the Map may only occur once; it is unique in the Map's collection.
+=> a same key an be repreated , but must have a different value
 =>A Map object is iterated by key-value pairs — a for...of loop returns a 2-member array of [key, value] for each iteration.
 => Iteration happens in insertion order, which corresponds to the order in which each key-value pair was first inserted into the map by the set() method (that is, there wasn't a key with the (SAME VAUE) already in the map when set() was called).
 */
@@ -81,17 +81,54 @@ let keys= Object.keys(student)  //this will return thr array of keys
 // console.log(keys.length) //2 //apply length property of array
 
 
-
+/*************for..in loop on object */
 for (const i in student){
-    console.log(i)
+    // console.log(i)
 }
 // name
 // rollno
 for (const i in student){
-    console.log(student[i])
+    // console.log(student[i])
 }
 //  Disha
 // 4152
+
+//for (const [key,value] of student){
+    //console.log(key, ":-", value)
+//}
+//TypeError: student is not iterable
+
+//NOTE: for...in loop  returns only keys, on printing interation variable
+
+// ************ for in loop on array
+let myarr=[1,2,3,45]
+//  for ( const i in myarr){
+//     // console.log(myarr[i])
+//  }
+ /* 
+1
+2
+3
+4
+ */
+for (const i of myarr){
+    // console.log(myarr)
+}
+/* 
+[ 1, 2, 3, 4 ]
+[ 1, 2, 3, 4 ]
+[ 1, 2, 3, 4 ]
+[ 1, 2, 3, 4 ]
+ */
+
+for (const i of myarr){
+    // console.log(i)
+}
+/* 
+1
+2
+3
+45*/
 
 // ********************MAP 
 const contact= new Map()
@@ -110,19 +147,137 @@ contact.set("Vishal",{
 })
 
 // console.log(contact.size) //2
-
+// contact.delete("...")
 // console.log(contact.get("Vishal"))  //{ phone: 4222, address: 'Ludhiana' }
+
+
+// console.log(contact)
+/* Map(2) {
+  'Disha' => { phone: 4152, address: 'Jadla' },
+  'Vishal' => { phone: 4222, address: 'Ludhiana' }
+}*/
 
 // for (const i of contact){
 //     console.log(i)
 // }
+
+
 
 /* 
 [ 'Disha', { phone: 4152, address: 'Jadla' } ]
 [ 'Vishal', { phone: 4222, address: 'Ludhiana' } ]
 */
 
+for (const [key, value] of contact){
+    //console.log(key, ";-", value)
+} 
+/* 
+Disha ;- { phone: 4152, address: 'Jadla' }
+Vishal ;- { phone: 4222, address: 'Ludhiana' }
+*/
+
 
 // ******SUMMARY: 
-// =>on map object, we use for..of loop
-// => on object, we use for..in loop to iterate its keys
+// =>on map object, array, strings, we use for..of loop
+// => on object and arrays, we use for..in loop to iterate its keys
+// => for..in loop returns only keys, on printing iteration variable
+//=> for..of loop prnt whole map object on printing iteration variable
+
+// ********************* forEach loop on array
+
+let coding=['js', 'java','cpp','python','react']
+// *** using normal function
+// coding.forEach( function (item) {
+//     console.log(item)
+// } )
+/* 
+js
+java
+cpp
+python
+react
+*/
+
+// ************using arrow function
+
+coding.forEach( (item) => {
+    //console.log(item)
+})
+/* 
+js
+java
+cpp
+python
+react
+*/
+
+//**declaring and defining function elsewhere and use it in forEach */
+//function printMe(pass_item){
+  //  console.log(pass_item)
+//}
+// we only need to give the reference to the function , istead of executing it
+//coding.forEach(printMe)
+/* 
+js
+java
+cpp
+python
+react
+*/
+
+
+
+
+// additional deatures of forEach
+function printMe(pass_item, ind, arr1){
+      console.log(pass_item, ind, arr1)
+}
+//ind: gives index of array coding
+//arr1: guves whole array coding 
+//coding.forEach(printMe)
+/*
+js 0 [ 'js', 'java', 'cpp', 'python', 'react' ]
+java 1 [ 'js', 'java', 'cpp', 'python', 'react' ]
+cpp 2 [ 'js', 'java', 'cpp', 'python', 'react' ]
+python 3 [ 'js', 'java', 'cpp', 'python', 'react' ]
+react 4 [ 'js', 'java', 'cpp', 'python', 'react' ]
+ */
+
+
+//******  when array is a collection of objects
+
+let myCoding=[
+    {
+        name:"Diksha",
+        rollNo:4152
+    },
+    {
+        name:"Vishal",
+        rollNo:4152
+    },
+    {
+        name:"Sarisha",
+        rollNo:4152
+    }
+]
+
+myCoding.forEach( (item) => {
+
+    console.log(item)
+
+})
+/* 
+{ name: 'Diksha', rollNo: 4152 }
+{ name: 'Vishal', rollNo: 4152 }
+{ name: 'Sarisha', rollNo: 4152 }*/
+
+myCoding.forEach( (item) => {
+
+    console.log(item.name)
+
+})
+/* 
+Diksha
+Vishal
+Sarisha
+*/
