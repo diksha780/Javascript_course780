@@ -60,8 +60,10 @@ a
 /*NOTE : 
 => The Map object holds key-value pairs and remembers the original insertion order of the keys.
 => Any value (both objects and primitive values) may be used as either a key or a value.
+=> an array can cave number or string as key...
+=> an object can have only strings or symbols as keys
 => A key in the Map may only occur once; it is unique in the Map's collection.
-=> a same key an be repreated , but must have a different value
+=> a same key can be repreated , but must have a different value
 =>A Map object is iterated by key-value pairs — a for...of loop returns a 2-member array of [key, value] for each iteration.
 => Iteration happens in insertion order, which corresponds to the order in which each key-value pair was first inserted into the map by the set() method (that is, there wasn't a key with the (SAME VAUE) already in the map when set() was called).
 */
@@ -69,7 +71,7 @@ a
 // *** LINK : difference btwn Map and Object
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 
-// ***********************OBJECT:  to check  size of objec, is a long process
+// ***********************OBJECT:  to check  size of object, is a long process
 let student={
     name: "Disha", 
     rollno: 4152
@@ -98,6 +100,15 @@ for (const i in student){
 //}
 //TypeError: student is not iterable
 
+/*
+for (const [key,value] in student){
+    console.log(key, ":-", value)
+}
+    */
+/* n :- a
+r :- o
+*/
+
 //NOTE: for...in loop  returns only keys, on printing interation variable
 
 // ************ for in loop on array
@@ -111,6 +122,20 @@ let myarr=[1,2,3,45]
 3
 4
  */
+
+for (const i in myarr){
+    console.log(i)
+   }
+   /* 
+   0
+1
+2
+3
+   */
+   
+
+
+
 for (const i of myarr){
     // console.log(myarr)
 }
@@ -121,6 +146,9 @@ for (const i of myarr){
 [ 1, 2, 3, 4 ]
  */
 
+
+
+
 for (const i of myarr){
     // console.log(i)
 }
@@ -129,6 +157,11 @@ for (const i of myarr){
 2
 3
 45*/
+
+//******NOTE: 
+//=> on arrays, using for..in loop, printing i will return only index of the array that starts from zero
+// => on arrays, using for..of loop,and printing i will return the values of the array
+//=> Thus for..of is better
 
 // ********************MAP 
 const contact= new Map()
@@ -181,13 +214,16 @@ Vishal ;- { phone: 4222, address: 'Ludhiana' }
 // =>on map object, array, strings, we use for..of loop
 // => on object and arrays, we use for..in loop to iterate its keys
 // => for..in loop returns only keys, on printing iteration variable
-//=> for..of loop prnt whole map object on printing iteration variable
+//=> for..of loop print whole map object or an array on printing iteration variable
 
 // ********************* forEach loop on array
 
 let coding=['js', 'java','cpp','python','react']
 // *** using normal function
-// coding.forEach( function (item) {
+////no name of functionn
+
+// coding.forEach( function (item) { 
+
 //     console.log(item)
 // } )
 /* 
@@ -282,7 +318,7 @@ Vishal
 Sarisha
 */
 
-// ************** Do forEach return values:
+// ************** Do forEach "return" values:
 let myNums=[1,2,3,4,5,6,7,8,9,10]
 let result= myNums.forEach( (num) => {
     return num;
@@ -291,7 +327,7 @@ let result= myNums.forEach( (num) => {
 // console.log(result) //undefined
 
 // NOTE: forEach loop does not return any value. 
-// => so if we instead of rinting the items, we need to return that items in order to perform some operation , wecant use forEach loop, we neend to use "filter"
+// => so if we instead of printing the items, we need to return that items in order to perform some operation , we cant use forEach loop, we neend to use "filter"
 // => Filter can return values of any array
 
 
@@ -307,19 +343,19 @@ let result2= myNums.filter( (num) => {
   */
 
 // NOTE: 
-// => when we want to print vaues , we use forEach loop on arrays
-// => when we want to return values , we use filter on arrays
+// => when we want to "print" values , we use "forEach" loop on arrays
+// => when we want to "return" values , we use "filter" on arrays
 let result3= myNums.filter( (num) => {
     return num >4
 })
 // console.log(result3) //[ 5, 6, 7, 8, 9, 10 ]
 // IMPORTANT NOTE: 
-// =>in arrow funcrions , we can use use ( ) for ca back, and () or {} for function ddefinition or body
-// => for function body, if () is used, it does implicit return, means we dont need to return vaues by writing return keyword..vaues are return implicitly
-// => IS USING {} ,then return eyword is required to return thre vaues
+// =>in arrow funcrions , we can use use ( ) for call back, and () or {} for function ddefinition or body
+// => for function body, if () is used, it does implicit return, means we dont need to return values by writing return keyword..values are return implicitly
+// => IS USING {} ,then return keyword is required to return thre vaues
 
 
-// or if dont want to use filter for array, and want to use forEch , then we do ie this
+// or if dont want to use filter for array, and want to use forEach , then we do like this
 
 let anotherArray=[]
 myNums.forEach( (num)=> {
@@ -340,7 +376,7 @@ let fruit=[
 // const getFruit= fruit.forEach( (item) => item.taste ==="sweet")
 // console.log(getFruit) //undefined
 
-// ****** using fiter : it will return vauess
+// ****** using fiter : it will return values
 // const getFruit= fruit.filter( (item) => item.taste ==="sweet")
 // console.log(getFruit)
 /* 
