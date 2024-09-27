@@ -228,12 +228,12 @@ react
 
 
 
-// additional deatures of forEach
-function printMe(pass_item, ind, arr1){
-      console.log(pass_item, ind, arr1)
-}
+// additional features of forEach
+// function printMe(pass_item, ind, arr1){
+//       console.log(pass_item, ind, arr1)
+// }
 //ind: gives index of array coding
-//arr1: guves whole array coding 
+//arr1: gives whole array coding 
 //coding.forEach(printMe)
 /*
 js 0 [ 'js', 'java', 'cpp', 'python', 'react' ]
@@ -261,23 +261,59 @@ let myCoding=[
     }
 ]
 
-myCoding.forEach( (item) => {
+// myCoding.forEach( (item) => {
 
-    console.log(item)
+//     console.log(item)
 
-})
+// })
 /* 
 { name: 'Diksha', rollNo: 4152 }
 { name: 'Vishal', rollNo: 4152 }
 { name: 'Sarisha', rollNo: 4152 }*/
 
-myCoding.forEach( (item) => {
+// myCoding.forEach( (item) => {
 
-    console.log(item.name)
+//     console.log(item.name)
 
-})
+// })
 /* 
 Diksha
 Vishal
 Sarisha
 */
+
+// ************** Do forEach return values:
+let myNums=[1,2,3,4,5,6,7,8,9,10]
+let result= myNums.forEach( (num) => {
+    return num;
+})
+
+// console.log(result) //undefined
+
+// NOTE: forEach loop does not return any value. 
+// => so if we instead of rinting the items, we need to return that items in order to perform some operation , wecant use forEach loop, we neend to use "filter"
+// => Filter can return values of any array
+
+
+let result2= myNums.filter( (num) => {
+    return num;
+})
+// console.log(result2)
+/* 
+[
+  1, 2, 3, 4,  5,
+  6, 7, 8, 9, 10
+]
+  */
+
+// NOTE: 
+// => when we want to print vaues , we use forEach loop on arrays
+// => when we want to return values , we use filter on arrays
+let result3= myNums.filter( (num) => {
+    return num >4
+})
+// console.log(result3) //[ 5, 6, 7, 8, 9, 10 ]
+// IMPORTANT NOTE: 
+// =>in arrow funcrions , we can use use ( ) for ca back, and () or {} for function ddefinition or body
+// => for function body, if () is used, it does implicit return, means we dont need to return vaues by writing return keyword..vaues are return implicitly
+// => IS USING {} ,then return eyword is required to return thre vaues
