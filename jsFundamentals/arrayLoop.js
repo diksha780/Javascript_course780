@@ -317,3 +317,56 @@ let result3= myNums.filter( (num) => {
 // =>in arrow funcrions , we can use use ( ) for ca back, and () or {} for function ddefinition or body
 // => for function body, if () is used, it does implicit return, means we dont need to return vaues by writing return keyword..vaues are return implicitly
 // => IS USING {} ,then return eyword is required to return thre vaues
+
+
+// or if dont want to use filter for array, and want to use forEch , then we do ie this
+
+let anotherArray=[]
+myNums.forEach( (num)=> {
+    if (num > 4){
+        return anotherArray.push(num)
+    }
+})
+// console.log(anotherArray) //[ 5, 6, 7, 8, 9, 10 ]
+
+
+// eg: 
+let fruit=[
+    {name: "Apple", color: "red", taste: "sour"},
+    {name: "Banana", color: "yellow", taste:"sweet"},
+    {name:"Mango", color: "yellow", taste: "sweet"}
+]
+// *******using forEach : it will not return values
+// const getFruit= fruit.forEach( (item) => item.taste ==="sweet")
+// console.log(getFruit) //undefined
+
+// ****** using fiter : it will return vauess
+// const getFruit= fruit.filter( (item) => item.taste ==="sweet")
+// console.log(getFruit)
+/* 
+[
+  { name: 'Banana', color: 'yellow', taste: 'sweet' },
+  { name: 'Mango', color: 'yellow', taste: 'sweet' }
+]
+*/
+
+// *******another way
+// const getFruit= fruit.forEach( (item) =>{
+//     if (item.taste ==="sweet")
+//         return item
+// })
+// console.log(getFruit) //undefined
+
+
+// ****another try
+const newArr=[]
+//  fruit.forEach( (item) =>{
+//         if (item.taste ==="sweet")
+//             return newArr.push(item)
+//     })
+
+    // console.log(newArr)
+    /* [
+  { name: 'Banana', color: 'yellow', taste: 'sweet' },
+  { name: 'Mango', color: 'yellow', taste: 'sweet' }
+]*/
