@@ -124,7 +124,7 @@ let myarr=[1,2,3,45]
  */
 
 for (const i in myarr){
-    console.log(i)
+   // console.log(i)
    }
    /* 
    0
@@ -318,7 +318,7 @@ Vishal
 Sarisha
 */
 
-// ************** Do forEach "return" values:
+// ************** Do forEach "return" values???? :
 let myNums=[1,2,3,4,5,6,7,8,9,10]
 let result= myNums.forEach( (num) => {
     return num;
@@ -406,3 +406,115 @@ const newArr=[]
   { name: 'Banana', color: 'yellow', taste: 'sweet' },
   { name: 'Mango', color: 'yellow', taste: 'sweet' }
 ]*/
+
+
+
+//********** map (): that we used in the react */
+
+let marks=[1,2,3,4,5,6,7,8]
+
+let result1 = marks.map((item) => {
+    return item +1
+})
+// console.log(result1)
+/* 
+
+[
+  2, 3, 4, 5,
+  6, 7, 8, 9
+]
+  */
+
+
+// on arrayas , we can use for..in, for..of,,forEach loop, filter(), map()
+//if in arraow function, if sscope is opened , then use rertun keyword
+
+//**************** chaining: using multiple map() anf filter on a sinle array to perform multiple operations */
+
+let result4 = marks
+                .map( (item) => item * 10)
+                .map( (item) => item +1)
+                .filter( (item ) => item >= 40)
+
+                 //console.log(result4)  //[ 41, 51, 61, 71, 81 ]
+            
+
+// reduce() method
+//NOTE: => when initialValue is given by user, then avluae of accumulator for first time is = initialValue and currentvalue stsrts from array[0]
+//=> if initailValue is not given by user , then accumulator= array[0] and currentValue starts from array[1]
+
+
+
+let arr1=[1,2,3,4]
+//********when initialValue is given by user */
+//let initialValue=1;
+//let result5= arr1.reduce( (accumulator, currentValue) =>accumulator + currentValue,initialValue,)
+
+//console.log(result5) //11
+
+//******when initailValue is not given by user */
+let result6= arr1.reduce( (accumulator,currentValue) => accumulator+ currentValue
+)
+
+//console.log(result6) //10
+
+//How reduce() works without an initial value
+
+
+const arr2=[1,2,3,4,5]
+
+function reducer(accumulator, currentValue,indexee){
+    let result=accumulator+currentValue;
+    console.log(`accumulator: ${accumulator}, currentValue: ${currentValue}, index:${indexee}, result:${result}`
+       
+    );
+    return result;
+}
+
+//arr2.reduce(reducer)
+
+/* 
+accumulator: 1, currentValue: 2, index:1, result:3
+accumulator: 3, currentValue: 3, index:2, result:6
+accumulator: 6, currentValue: 4, index:3, result:10
+accumulator: 10, currentValue: 5, index:4, result:15
+*/
+
+
+// eg: Cart billing  sum
+  let bill=[1,2,3,4] 
+//   let totalBill= bill.reduce( (accumulator, currentValue, index) => {
+//       let printBill=accumulator +currentValue;
+//       console.log(`accumulator: ${accumulator}, currentValue: ${currentValue}, index: ${index}, printBill: ${printBill}`)
+//       return printBill;
+// })
+
+//   console.log ( totalBill)
+/*
+accumulator: 1, currentValue: 2, index: 1, printBill: 3
+accumulator: 3, currentValue: 3, index: 2, printBill: 6
+accumulator: 6, currentValue: 4, index: 3, printBill: 10
+10
+*/
+
+// NOTE: intead of {} scope, we can aso use implcit scope () in which we dont need to write return
+// => we can do the same task in for..of,   or other normal loops 
+
+// eg: array of objects
+let shoppingCart = [
+    {course: "js course",
+        price: 499
+    },
+    {course: "java course",
+        price: 599
+    },
+    {course: "py course",
+        price: 399
+    },
+    {course: "react course",
+        price: 1499
+    },
+]
+
+let totalBill= shoppingCart.reduce((accumulator, item) => (accumulator + item.price), 0);
+// console.log(totalBill) //2996
