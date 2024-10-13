@@ -13,19 +13,21 @@ Math*/
 // let balance = new Number(100) //declare a nummber with new keyword as an object
 // console.log(balance)
 // console.log( typeof balance)
+// [Number: 100]
+// object
 
 // ********************Math functions on numbers
 
 // **************toString()
-// let balance = 100  // |^number is declared above with object keyword "new" 
-// let strBalance=balance.toString()
-// console.log(balance.toString())
-// console.log(strBalance)
-// console.log(typeof balance)
-// console.log(typeof strBalance)
+let balance = 100  // |^number is declared above with object keyword "new" 
+let strBalance=balance.toString() 
+// console.log(balance.toString()) //100
+// console.log(strBalance) //100
+// console.log(typeof balance) //number
+// console.log(typeof strBalance) //string
 
-// console.log(balance.toString().length)//return number of charcters in string
-// console.log(strBalance.length)
+// console.log(balance.toString().length) //3//return number of charcters in string
+// console.log(strBalance.length) //3
 // console.log(balance.length)// gives undefined,,,, as length function is only applicable on strings but not on numbers
 
 /* ________OUTPUT____
@@ -38,7 +40,7 @@ string
 undefined
 
 */
-// console.log(balance.toString.concat(100))
+// console.log(balance.toString().concat(100)) //100100
 
 // _________________NOTES ON NUMBER AND STRING FUNCTION
 /*  => number declared with new keyword is of object type
@@ -116,8 +118,8 @@ undefined
 // console.log(Math.abs(num1)) //  4  gives positive value
 
 // ************round()
-// let num2= 167.8676
-// console.log(Math.round(num2))  // 168  roundoff vaues
+// let num2
+// console.log(Math.round(num2))  // 168  roundoff values
 
 // **************ceil() and floor()
 
