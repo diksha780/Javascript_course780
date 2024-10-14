@@ -4,9 +4,9 @@
 // let name="Diksha"
 
 // if(name=="Diksha"){
-//     console.log("You belongs to V")
+//     console.log("You belong to V")
 // }
-//You belongs to V
+//You belong to V
 
 
 // eg2
@@ -24,8 +24,8 @@
 
 // }
 // The Office is closed
-// NOTE: the contro will ony goes indide if, ony if the any of the give conditions is evaluated to true
-// if all are false conditions, then not enter into if blockk'
+// NOTE: the control will ony goes indide if, ony if the any of the give conditions is evaluated to true
+// if all are false conditions, then not enter into if block
 // In other words, a chain of OR || returns the first truthy value or the last one if no truthy value is found.
 
 // console.log(null|| undefined||0) //0
@@ -43,7 +43,14 @@
 // eg:
 // console.log (console.log(1)|| 2|| console.log(3)) 
 //1
-112
+//2
+
+// console.log (console.log(1)||  console.log(3))
+/*
+1
+3
+undefined
+*/
 /* The call to alert does not return a value. Or, in other words, it returns undefined.
 
 The first OR || evaluates its left operand alert(1). That shows the first message with 1.
@@ -89,7 +96,7 @@ So the code a && b || c && d is essentially the same as if the && expressions we
 
 // // *************LOGICAL not (!)
 /* 
-The opera!!ntor accepts a single argument and does the following:
+The operator accepts a single argument and does the following:
 
 Converts the operand to boolean type: true/false.
 Returns the inverse value.*/
@@ -99,10 +106,11 @@ Returns the inverse value.*/
 // =>Converts the operand to boolean type: true/false.
 // Returns the inverse value.
 
-// console.log(!!"My name is Diksha") //true
+//  console.log(!!"My name is Diksha") //true
+//  console.log(!"My name is Diksha") //false
 // console.log(null) //false
 
-// => second method to do the same is using built-in Boolean funcrion
+// => second method to do the same is using built-in Boolean function
 
 // console.log(Boolean("My name is Diksha")) //true
 
