@@ -12,6 +12,8 @@ const {name}=obj1
 // we can also give new shorter name to the key
 const {name:n}=obj1
 // console.log(n) //diksha
+const {id} =obj1
+// console.log(id) //1
 
 
 

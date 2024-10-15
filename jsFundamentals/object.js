@@ -1,5 +1,10 @@
+//REVISION NOTES:
+//=> to combine objects, we use normal method { obj1, obj2}, Object.assign(), spread method() ie. (..obj1, obj2)
+//=> when we copy the object into another variable( or while cloning the object without {} as target element), the change in parent object is reflected  back to the child object(copied object) and vice versa // shallow copy
+//=> when we copy the object into another variable( or while cloning the object with{} as target element), the change in parent object is NOT reflected  back to the child object(copied object) and vice versa // shallow copy
+
 //  two ways to declare object: singleton(through constructor) and literal
-// singleton method says that there is only that unique object 
+// singleton method says that there is only that unique object  
 // ie const obj = new Object()
 
 // object literals: this type of object has many instances
@@ -69,7 +74,7 @@ const user2={
     mysym:5, //this is not the actual symbol used as the key in the object // it will treated as string by the engine, however will return the corresonding value ie marks
 
 }
-// console.log(user2["mysym"]) //marks
+//  console.log(user2["mysym"]) //5
 // console.log(typeof user2["mysym"]) //number
 // console.log(typeof user2[mysym]) //undefined
 // console.log(typeof mysym) //symbol
@@ -145,8 +150,13 @@ user4.name="Diksha Rani"
 
 user4.myFunc=function greet() {
     console.log("Hello Diksha")
+    return 1
 }
 
+user4.greet=function (){
+  console.log("Hello")
+  
+}
 // console.log(user4)
 
 /* 
@@ -162,16 +172,36 @@ user4.myFunc=function greet() {
   */
 //  console.log(user4["myFunc"]) //[Function: greet]
 // console.log(user4["myFunc()"]) //undefined
+// console.log(user4[myFunc()]) //undefined
+// console.log(user4.greet())
+// Hello
+// undefined
+
 //  console.log(user4.myFunc()) 
 /* Hello Diksha
-   undefined 
+   undefined //if nothing is return in the function
  */
-
+///or
+// Hello Diksha
+// 1 //(if return 1 in the function)
+// console.log(user4)
+/*
+{
+  name: 'Diksha Rani',
+  'full name': 'Diksha Rani',
+  roll_no: 4152,
+  program: 'CSE',
+  address: 'Jadla',
+  myFunc: [Function: greet],
+  greet: [Function (anonymous)],
+  [Symbol(key1)]: 76
+}
+*/
 
  // *************this keyword
 //  _NOTES
 //  => this keyword is used to refer the same object or the properties of the same object
-// => for eg, if inside a function which is also a value of object say A ,  i want to access the any other key of the same object A, then we will access that key or the whole object usinh " this " keyword
+// => for eg, if inside a function which is also a value of object say A ,  i want to access the any other key of the same object A, then we will access that key or the whole object using " this " keyword
  
 
 user4.myFunc2= function myAccess(){
@@ -258,7 +288,7 @@ Amarjit
  const comObj1={obj2,obj3}
 //  console.log(comObj1) 
 //  { obj2: { '1': 'a', '2': 'b' }, obj3: { '3': 'c', '4': 'd' } }
-// console.log(obj2) //here obj2 is not treated as targeted object
+// console.log(obj2) //{ '1': 'a', '2': 'b' } //here obj2 is not treated as targeted object
 
 // ******** METHOD 2: using Object.assign()
 
@@ -357,7 +387,7 @@ const copy1 = Object.assign({},obj7)
 
 const obj9 = { a: 0, b: { c: 0 } }; 
 const obj10 = Object.assign({}, obj9);
-// console.log(obj10); 
+// console.log(obj10); //{ a: 0, b: { c: 0 } }
 
 // *****modify embedded object key value
 obj9.b.c = 3;
@@ -413,13 +443,22 @@ const obj15={
 // console.log(obj15.latest) //c
 
 
+// const obj16={
+//   log:["Diksha", "Rani"],
+//    latest(){
+//     return this.log.at(-1);
+//   }
+// }
+// console.log(obj16.latest) //[Function: latest]
+
+//same function with get
 const obj16={
   log:["Diksha", "Rani"],
-  get latest(){
+   get latest(){
     return this.log.at(-1);
   }
 }
-// console.log(obj16.latest) //Rani
+console.log(obj16.latest) //Rani
 
 // ********set keyword
 /* _____NOTES:

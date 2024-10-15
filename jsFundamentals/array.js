@@ -3,7 +3,7 @@ const arr1=[1,2,3,4]  //add numbers in array
 const arr2=["Diksha", "Nangla", 9, 8] // add multiple items  
 // console.log(arr2)
 arr2[2]= "Vishal" //can add more elements into array(initial values at that index will be overridden)
-// console.log(arr2)
+// console.log(arr2) //[ 'Diksha', 'Nangla', 'Vishal', 8 ]
 
 // arr2= ["Vishal"] // can't change the original content of array
 
@@ -16,11 +16,11 @@ arr2[2]= "Vishal" //can add more elements into array(initial values at that inde
 // **************array methods/ properties
 // *********push()
 arr1.push("Diksha") //add elements into array
-// console.log(arr1)
+// console.log(arr1) //[ 1, 2, 3, 4, 'Diksha' ]
 
 // *****pop() // used empty, remove element at last index of array
 arr2.pop()
-// console.log(arr2)
+// console.log(arr2) //[ 'Diksha', 'Nangla', 'Vishal' ]
 
 arr2.pop()
 // console.log(arr2)
@@ -36,20 +36,27 @@ let arr3=[1,2,3,4,5,6,7]
   ]*/
 
 // ********shift() : it removes the element at beginning  from array
-// console.log(arr3)
-arr3.shift()
+// console.log(arr3) 
+/* 
+[
+  1, 2, 3, 4,
+  5, 6, 7
+]
+*/
+// arr3.shift()
 // console.log(arr3) 
 /*[
-    1, 2, 3, 4,
-    5, 6, 7
+   2, 3, 4,
+  5, 6, 7
   ]
     */
-  arr3.shift()
-  arr3.shift()
-  // console.log(arr3.shift()) // length of removed elements from array using shift() or number of elements that have been removed
-  //  console.log(arr3)
+  // arr3.shift()
+  // arr3.shift()
+  // console.log(arr3.shift()) /4 // length of removed elements from array using shift() or number of elements that have been removed
+  //  console.log(arr3) //[ 5, 6, 7 ]
 
-// .*********array methods
+
+   // .*********array methods
 
 
 
@@ -67,7 +74,7 @@ let arr4=["Diksha", "Vishal","Sarisha"]
 
 // *************join() : method that combines an array into a string 
 // type of array from an object is changed to string
-let newarr= arr4.join()
+// let newarr= arr4.join()
 // console.log(arr4) //[ 'Diksha', 'Vishal', 'Sarisha' ]
 // console.log(newarr) //Diksha,Vishal,Sarisha
 // console.log(typeof arr4) //object
@@ -85,7 +92,7 @@ let arr5 =[1,2,3,4,5,6,7,8]
   5, 6, 7, 8
 ] */
 
-// console.log("b: ", arr5.slice(1,4)) // slice the array elements from the given index 1 but ignore the last index 4
+// console.log("b: ", arr5.slice(1,4)) // slice and return the array elements from the given index 1 but ignore the last index 4
 /* b:  [ 2, 3, 4 ] */
 
 //  console.log(arr5) 
@@ -103,14 +110,14 @@ let arr6=[1,2,3,4,5,6,7,8,9]
 /* 
 [
   1, 2, 3, 4,
-  5, 6, 7, 8
+  5, 6, 7, 8,9
 ]
 */
 
 // console.log("b", arr6.splice(1,4)) 
 /* b [ 2, 3, 4, 5 ]
 */
-// it slice out/ print the elements from index 1 to 4( yes last index is also included in the sliced elements)
+// it slice out/ print the elements from index 1 to 4( yes last index is also included in the spiced elements)
 // console.log("c", arr6) 
 /*
 c [ 1, 6, 7, 8, 9 ] */
@@ -121,13 +128,48 @@ c [ 1, 6, 7, 8, 9 ] */
 // ******************** to combine multiple arrays into one array
 
 // ***********push ()
-// console.log(arr3)  //[ 4, 5, 6, 7 ]
+// console.log(arr3)  
+/* 
+[
+  1, 2, 3, 4,
+  5, 6, 7
+]
+*/
 // console.log(arr4) //[ 'Diksha', 'Vishal', 'Sarisha' ]
 let arr9= ["Ivaan", "Sarisha"]
-arr3.push(arr4, arr9)
+// arr3.push(arr4, arr9)
 // console.log(arr3) // (here arr4 is pushed into arr3)
+/* 
+[
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  [ 'Diksha', 'Vishal', 'Sarisha' ],
+  [ 'Ivaan', 'Sarisha' ]
+]
+*/
+//  arr3.push(arr4)
+//  console.log(arr3) //[ 1, 2, 3, 4, 5, 6, 7, [ 'Diksha', 'Vishal', 'Sarisha' ] ]
+// console.log(arr3.push(arr4)) //9 returns length of the combined array
+// console.log(arr3)
+/* 
+[
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  [ 'Diksha', 'Vishal', 'Sarisha' ],
+  [ 'Diksha', 'Vishal', 'Sarisha' ]
+]
+*/
 
-// console.log(arr3.push(arr4)) //5 returns length of the combined array
  //array arr4 is merged into arr3 as its element 
 // console.log(arr3)  //[ 4, 5, 6, 7, [ 'Diksha', 'Vishal', 'Sarisha' ] ]
 // console.log(arr3[4]) //[ 'Diksha', 'Vishal', 'Sarisha' ]
@@ -144,10 +186,10 @@ let arr8= ["Diksha", "Vishal"]
 //  console.log(arr8) //[ 'Diksha', 'Vishal' ]
   let newarr1= arr7.concat(arr8,)
   // console.log(newarr1) //  [ 1, 2, 3, 'Diksha', 'Vishal' ]
-
+  // console.log(arr7) //[ 1, 2, 3 ]
 
   // let newarr3= arr7.concat(arr8,arr9)
-  // console.log(newarr3)
+  // console.log(newarr3) //[ 1, 2, 3, 'Diksha', 'Vishal', 'Ivaan', 'Sarisha' ]
 
   // 
 
@@ -198,20 +240,22 @@ let str1="Diksha"
 let num =34253
 // console.log(Array.from(str1)) //[ 'D', 'i', 'k', 's', 'h', 'a' ]
 // console.log(Array.from(num))  //[]
-// console.log(Array.from(String(num)))  //by converting  number into String data type, we can use from () on numbers
-// console.log(typeof  num)
+// console.log(Array.from(String(num))) //[ '3', '4', '2', '5', '3' ] //by converting  number into String data type, we can use from () on numbers
+// console.log(typeof  num) //number
 let obj1={
-  "name": "Diksha"
+  name: "Diksha",
+  rollno:4152
+  
 }
 
-// console.log(Array.from(obj1)); //[] we have to define that we want to conver key/ values of the object into arry
+// console.log(Array.from(Object.keys(obj1))); //[ 'name', 'rollno' ] //we have to define that we want to conver key/ values of the object into arry
 
 // **********************of()
 let num2=6
 let num3=16
-let arr12 = Array.of(num2,num3)
+// let arr12 = Array.of(num2,num3)
 
-// console.log(arr12)
+// console.log(arr12) //[ 6, 16 ]
 // *******************************************************************************************
 
 // *********************More About Arrays
@@ -242,7 +286,9 @@ let arr13= ["Diksha", 1,3, {"name":"Vishal"}, function (){console.log("Hi");
 */
 
 
-// **********length-1
+// **********
+
+
 let arr14=[1,2,3,4,5,6,7,] //trailing comma
 // console.log(arr14.length); //7
 // console.log(arr14[arr14.length-1]) //7
